@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: Pynancialyst
+Version: 0.1.1.1
+Summary: This is a library for financial analysis.
+Home-page: https://github.com/CloseBayona/Pynancialyst.git
+Author: Bayonalyst
+Author-email: bayonadrian0313@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE.txt
+
+# Financialyst for financial analyst
+
+Do you want to make financial analysis?, this is a great start-point, to start you have to call Financier, and then use it's modules.

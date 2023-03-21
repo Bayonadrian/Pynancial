@@ -1,0 +1,6 @@
+numpy>=1.24.2
+wincertstore>=0.2
+
+[dev]
+nose>=1.3.7
+twine>=4.0.2
