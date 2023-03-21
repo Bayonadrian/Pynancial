@@ -1,4 +1,4 @@
-from Pynancialyst.Types import fTypes
+from Types import fTypes
 import numpy as np
 
 def LoanP(total: float, anualInterest: float, period: int, r: int=2)-> fTypes.LoanPayments:
