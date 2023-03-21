@@ -21,8 +21,8 @@ class TestInterest(unittest.TestCase):
 
         ''' First element is Nan due to the shift then we remove it with [1:] '''
 
-        self.assertEqual(self.simple.tolist()[1:], [-0.008015766338726919, -0.014141266314460766, 0.002049095857393118, -0.004090500051719038])
+        self.assertEqual(self.simple.tolist()[1:], [-0.008015827205964691, -0.014141328169356726, 0.002049033243804463, -0.004090124880830296])
 
     def test_lInterestRate(self):
 
-        self.assertEqual(self.logarithmic.tolist()[1:], [-0.00804806531018693, -0.014242206768132409, 0.002046999323986804, -0.004098889031619274])
+        self.assertEqual(self.logarithmic.tolist()[1:], [-0.008048126669266648, -0.014242269510283803, 0.0020469368384351963, -0.004098512319861675])

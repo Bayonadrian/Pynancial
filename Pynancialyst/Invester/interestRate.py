@@ -1,5 +1,7 @@
 from typing import Any
-from Pynancialyst.Types import fTypes
+# For testing purposes
+# from Pynancialyst.Types import fTypes
+from Types import fTypes
 import numpy as np
 
 class interestRateOfReturn():
