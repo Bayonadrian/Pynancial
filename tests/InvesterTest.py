@@ -28,7 +28,7 @@ class TestInterest(unittest.TestCase):
             self.interest.simple(0)
 
         # Simple with period == 1.
-        self.assertEqual(simple.tolist()[1:], [-0.008015827205964691, -0.014141328169356726, 0.002049033243804463, -0.004090124880830296])
+        self.assertEqual((simple[0].tolist()[1:], simple[1]), ([-0.008015827205964691, -0.014141328169356726, 0.002049033243804463, -0.004090124880830296], -0.0060495617530868140))
         # Simple with period < 1.
         self.assertEqual((simple_period[0].tolist()[1:], simple_period[1]), ([-0.008015827205964691, -0.014141328169356726, 0.002049033243804463, -0.004090124880830296], -1.5123904382717035))
         
@@ -43,7 +43,7 @@ class TestInterest(unittest.TestCase):
             self.interest.logarithmic(0)
 
         # Logarithmic with period == 1.
-        self.assertEqual(logarithmic.tolist()[1:], [-0.008048126669266648, -0.014242269510283803, 0.0020469368384351963, -0.004098512319861675])
+        self.assertEqual((logarithmic[0].tolist()[1:], logarithmic[1]), ([-0.008048126669266648, -0.014242269510283803, 0.0020469368384351963, -0.004098512319861675], -0.00608549291524423250))
         # Logarithmic with period < 1.
         self.assertEqual((logarithmic_period[0].tolist()[1:], logarithmic_period[1]), ([-0.008048126669266648, -0.014242269510283803, 0.0020469368384351963, -0.004098512319861675], -1.5213732288110582))
         

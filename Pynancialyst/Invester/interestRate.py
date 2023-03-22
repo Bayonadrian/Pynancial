@@ -27,13 +27,7 @@ class interestRateOfReturn():
 
         rate = (self.ending -  self.beggining) / self.beggining
 
-        if period == 1:
-        
-            return rate
-        
-        else:
-
-            return rate, np.mean(rate) * period
+        return rate, np.mean(rate) * period
 
     def logarithmic(self, period: int = 1) -> LInterstRate:
 
@@ -43,10 +37,4 @@ class interestRateOfReturn():
 
         rate = np.log(rate)
 
-        if period == 1:
-
-            return rate
-        
-        else:
-
-            return rate, np.mean(rate) * period
+        return rate, np.mean(rate) * period
