@@ -1,5 +1,5 @@
 import numpy as np
-from Types import fTypes
+from Pynancialyst.Types import fTypes
 
 class Eval:
 

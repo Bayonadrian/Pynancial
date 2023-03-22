@@ -4,6 +4,7 @@ Pynancialyst/FinancialEvaluations/__init__.py
 Pynancialyst/FinancialEvaluations/proyEval.py
 Pynancialyst/Invester/__init__.py
 Pynancialyst/Invester/interestRate.py
+Pynancialyst/Invester/riskMeasurement.py
 Pynancialyst/LoanPayments/__init__.py
 Pynancialyst/LoanPayments/payments.py
 Pynancialyst/Pynancialyst.egg-info/PKG-INFO

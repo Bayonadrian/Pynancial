@@ -1,19 +1,52 @@
-from Types import fTypes
 import numpy as np
+from Types.fTypes import Union, Number, SInterestRate, LInterstRate, PandasDataFrame
 
 class interestRateOfReturn():
 
-    def __init__(self, ending: float, beggining: float) -> None:
+    def __init__(self, ending: Union[Number, PandasDataFrame], beggining: Union[Number, PandasDataFrame], pd: bool= False) -> None:
         
-        self.ending = ending
-        self.beggining = beggining
+        # If user uses a Pandas Dataframe, then shift comes automatically.
+        if pd == True:
 
-    def simple(self) -> fTypes.sInterestRate:
+            # Ending value.
+            self.ending = ending
+            # Beggining value
+            self.beggining = beggining.shift(1)
 
-        return (self.ending -  self.beggining) / self.beggining
+        # Otherwise shift is not incorporated.
+        else:
 
-    def logarithmic(self) -> fTypes.lInterstRate:
+            # Ending value.
+            self.ending = ending
+            # Beggining value
+            self.beggining = beggining
 
-        interest = self.ending / self.beggining
+    def simple(self, period: int = 1) -> SInterestRate:
 
-        return np.log(interest)
+        assert period > 0, 'period value must be more than 0'
+
+        rate = (self.ending -  self.beggining) / self.beggining
+
+        if period == 1:
+        
+            return rate
+        
+        else:
+
+            return rate, np.mean(rate) * period
+
+    def logarithmic(self, period: int = 1) -> LInterstRate:
+
+        assert period > 0, 'period value must be more than 0'
+
+        rate = self.ending / self.beggining
+
+        rate = np.log(rate)
+
+        if period == 1:
+
+            return rate
+        
+        else:
+
+            return rate, np.mean(rate) * period
