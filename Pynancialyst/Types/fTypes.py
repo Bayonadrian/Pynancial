@@ -1,8 +1,10 @@
-import typing
+from typing import TypeVar, Union
+from numbers import Number
 
-LoanPayments = typing.NewType('Loan payments', float)
-sInterestRate = typing.NewType('Simple interest rate of return', float)
-lInterstRate = typing.NewType('Logarithmic interest rate of return', float)
-PresentValue = typing.NewType('Present value', list)
-NetPresentValue = typing.NewType('Net present value', float)
-InternalRateOfReturn = typing.NewType('Internal rate of return', float)
+LoanPayments = TypeVar('LoanPayments')
+SInterestRate = TypeVar('SInterestRate')
+LInterstRate = TypeVar('LInterstRate')
+PresentValue = TypeVar('PresentValue')
+NetPresentValue = TypeVar('NetPresentValue')
+InternalRateOfReturn = TypeVar('InternalRateOfReturn')
+PandasDataFrame = TypeVar('PandasDataFrame')

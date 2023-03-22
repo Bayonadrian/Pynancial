@@ -1,10 +1,9 @@
-from typing import Any
-from Pynancialyst.Types import fTypes
 import numpy as np
+from Pynancialyst.Types.fTypes import Union, Number, SInterestRate, LInterstRate, PandasDataFrame
 
 class interestRateOfReturn():
 
-    def __init__(self, ending: Any, beggining: Any, pd= False) -> None:
+    def __init__(self, ending: Union[Number, PandasDataFrame], beggining: Union[Number, PandasDataFrame], pd: bool= False) -> None:
         
         # If user uses a Pandas Dataframe, then shift comes automatically.
         if pd == True:
@@ -22,12 +21,32 @@ class interestRateOfReturn():
             # Beggining value
             self.beggining = beggining
 
-    def simple(self) -> fTypes.sInterestRate:
+    def simple(self, period: int = 1) -> SInterestRate:
 
-        return (self.ending -  self.beggining) / self.beggining
+        assert period > 0, 'period value must be more than 0'
 
-    def logarithmic(self) -> fTypes.lInterstRate:
+        rate = (self.ending -  self.beggining) / self.beggining
 
-        interest = self.ending / self.beggining
+        if period == 1:
+        
+            return rate
+        
+        else:
 
-        return np.log(interest)
+            return rate, np.mean(rate) * period
+
+    def logarithmic(self, period: int = 1) -> LInterstRate:
+
+        assert period > 0, 'period value must be more than 0'
+
+        rate = self.ending / self.beggining
+
+        rate = np.log(rate)
+
+        if period == 1:
+
+            return rate
+        
+        else:
+
+            return rate, np.mean(rate) * period
