@@ -1,20 +1,73 @@
 import unittest
 import pandas as pd
-from Pynancialyst.Invester import interestRate
+import numpy as np
+from Pynancialyst.Invester import interest_rate
 
-class TestInterest(unittest.TestCase):
+class TestInterestRate(unittest.TestCase):
 
     def setUp(self) -> None:
 
         ''' This class could admit any numerical value or list of numerical values, we are going to use a yahoo data set for testing. '''
 
-        self.data = pd.read_csv('tests/TestData/yahoo_data.csv').head()
+        self.data = pd.read_csv('tests/TestData/yahoo_data_interest.csv').head()
 
         self.ending = self.data['Adj Close']
         self.beggining = self.data['Adj Close']
         
-        self.interest = interestRate.interestRateOfReturn(ending= self.ending, beggining= self.beggining, pd= True)
+        self.interest = interest_rate.interestRateOfReturn(ending= self.ending, beggining= self.beggining, pd= True)
 
+    def test_constructor(self):
+
+        # Ending
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= [1,2,3], beggining= self.beggining, pd= True)
+
+        with self.assertRaises(AssertionError):
+        
+            interest_rate.interestRateOfReturn(ending= (1,2,3), beggining= self.beggining, pd= True)
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= {1,2,3}, beggining= self.beggining, pd= True)
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= np.array([1,2,3]), beggining= self.beggining, pd= True)
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= {'k': [1,2,3]}, beggining= self.beggining, pd= True)
+
+        # Beggining
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= self.ending, beggining= [1,2,3], pd= True)
+
+        with self.assertRaises(AssertionError):
+        
+            interest_rate.interestRateOfReturn(ending= self.ending, beggining= (1,2,3), pd= True)
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= self.ending, beggining= {1,2,3}, pd= True)
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= self.ending, beggining= np.array([1,2,3]), pd= True)
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= self.ending, beggining= {'k': [1,2,3]}, pd= True)
+
+        # pd
+
+        with self.assertRaises(AssertionError):
+
+            interest_rate.interestRateOfReturn(ending= self.ending, beggining= self.beggining, pd= 2)
+    
     def test_sInterestRate(self):
 
         ''' Here there are the arrors for simple interest rate '''

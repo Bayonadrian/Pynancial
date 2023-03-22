@@ -1,10 +1,14 @@
 import numpy as np
-from Pynancialyst.Types.fTypes import Union, Number, SInterestRate, LInterstRate, PandasDataFrame
+from Pynancialyst.Types.f_types import Union, Number, SInterestRate, LInterstRate, PandasDataFrame
 
 class interestRateOfReturn():
 
     def __init__(self, ending: Union[Number, PandasDataFrame], beggining: Union[Number, PandasDataFrame], pd: bool= False) -> None:
         
+        assert not isinstance(ending, (list, tuple, set, dict, type(np.array([])))), "Use Pandas Dataframe instead of a list, tuple, dict, set or numpy array for beggining, and ending params."
+        assert not isinstance(beggining, (list, tuple, set, dict, type(np.array([])))), "Use Pandas Dataframe instead of a list, tuple, dict, set or numpy array for beggining, and ending params."
+        assert isinstance(pd, bool), "pd argument must be a bool."
+
         # If user uses a Pandas Dataframe, then shift comes automatically.
         if pd == True:
 

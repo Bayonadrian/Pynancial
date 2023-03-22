@@ -1,5 +1,5 @@
 import numpy as np
-from Pynancialyst.Types import fTypes
+from Pynancialyst.Types import f_types
 
 class Eval:
 
@@ -9,7 +9,7 @@ class Eval:
 
         self.pv = 0
 
-    def PV(self, interest: float, decimals: int)-> fTypes.PresentValue:
+    def PV(self, interest: float, decimals: int)-> f_types.PresentValue:
 
         assert interest < 1 and interest > 0, 'interest has to be a float between 1 and 0.'
         assert type(decimals) == int, 'Decimals has to be an integer.'
@@ -22,13 +22,13 @@ class Eval:
 
         return np.round(pv, decimals)
     
-    def NPV(self)-> fTypes.NetPresentValue:
+    def NPV(self)-> f_types.NetPresentValue:
 
         # assert self.pv != 0, 'Don\'t forget to use PV method first'
 
         return np.sum(self.pv)
 
-    def IRR(self, steps = 0.00001, min=0.001)-> fTypes.InternalRateOfReturn:
+    def IRR(self, steps = 0.00001, min=0.001)-> f_types.InternalRateOfReturn:
 
         cEnumerated: list = list(enumerate(self.cashFlow))
 
