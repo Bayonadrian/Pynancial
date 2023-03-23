@@ -1,31 +1,35 @@
 import numpy as np
-from Pynancialyst.Types.f_types import Union, Number, SInterestRate, LInterstRate, PandasDataFrame
+from Pynancialyst.Types.f_types import Number, SInterestRate, LInterstRate, PandasDataFrame
 
 class interestRateOfReturn():
 
-    def __init__(self, ending: Union[Number, PandasDataFrame], beggining: Union[Number, PandasDataFrame], pd: bool= False) -> None:
+    def __init__(self, data: PandasDataFrame, other_value: Number = None, pd: bool= True) -> None:
         
-        assert not isinstance(ending, (list, tuple, set, dict, type(np.array([])))), "Use Pandas Dataframe instead of a list, tuple, dict, set or numpy array for beggining, and ending params."
-        assert not isinstance(beggining, (list, tuple, set, dict, type(np.array([])))), "Use Pandas Dataframe instead of a list, tuple, dict, set or numpy array for beggining, and ending params."
+        assert not isinstance(data, (list, tuple, set, dict, type(np.array([])))), "Use Pandas Dataframe or numbers as params."
         assert isinstance(pd, bool), "pd argument must be a bool."
 
         # If user uses a Pandas Dataframe, then shift comes automatically.
         if pd == True:
 
+            assert not isinstance(data, Number), "data parameter must be a Pandas Dataframe if pf == True."
+
             # Ending value.
-            self.ending = ending
+            self.ending = data
             # Beggining value
-            self.beggining = beggining.shift(1)
+            self.beggining = data.shift(1)
 
         # Otherwise shift is not incorporated.
         else:
 
-            # Ending value.
-            self.ending = ending
-            # Beggining value
-            self.beggining = beggining
+            assert isinstance(data, Number), "data parameter must be a number(int or float)"
+            assert isinstance(other_value, Number), "other_value parameter must be a number(int or float)"
 
-    def simple(self, period: int = 1) -> SInterestRate:
+            # Ending value.
+            self.ending = data
+            # Beggining value
+            self.beggining = other_value
+
+    def simple(self, period: int = 250) -> SInterestRate:
 
         assert period > 0, 'period value must be more than 0'
 
@@ -33,7 +37,7 @@ class interestRateOfReturn():
 
         return rate, np.mean(rate) * period
 
-    def logarithmic(self, period: int = 1) -> LInterstRate:
+    def logarithmic(self, period: int = 250) -> LInterstRate:
 
         assert period > 0, 'period value must be more than 0'
 

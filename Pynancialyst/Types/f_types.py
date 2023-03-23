@@ -1,4 +1,4 @@
-from typing import TypeVar, Union
+from typing import TypeVar, Union, List
 from numbers import Number
 
 LoanPayments = TypeVar('LoanPayments')
