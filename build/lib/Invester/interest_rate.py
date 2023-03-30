@@ -1,5 +1,5 @@
 import numpy as np
-from Pynancialyst.Types.f_types import Number, SInterestRate, LInterstRate, PandasDataFrame
+from Types.f_types import Number, SInterestRate, LInterstRate, PandasDataFrame
 
 class interestRateOfReturn():
 

@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from Pynancialyst.Types.f_types import PandasDataFrame, Union, List
-from Pynancialyst.Invester.interest_rate import interestRateOfReturn
+from Types.f_types import PandasDataFrame, Union, List
+from Invester.interest_rate import interestRateOfReturn
 
 class portfolioRisk(interestRateOfReturn):
 
