@@ -3,8 +3,8 @@ setup.py
 Pynancialyst/FinancialEvaluations/__init__.py
 Pynancialyst/FinancialEvaluations/proyEval.py
 Pynancialyst/Invester/__init__.py
-Pynancialyst/Invester/interestRate.py
-Pynancialyst/Invester/riskMeasurement.py
+Pynancialyst/Invester/interest_rate.py
+Pynancialyst/Invester/risk_measurement.py
 Pynancialyst/LoanPayments/__init__.py
 Pynancialyst/LoanPayments/payments.py
 Pynancialyst/Pynancialyst.egg-info/PKG-INFO
@@ -13,4 +13,4 @@ Pynancialyst/Pynancialyst.egg-info/dependency_links.txt
 Pynancialyst/Pynancialyst.egg-info/requires.txt
 Pynancialyst/Pynancialyst.egg-info/top_level.txt
 Pynancialyst/Types/__init__.py
-Pynancialyst/Types/fTypes.py
+Pynancialyst/Types/f_types.py
